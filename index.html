@@ -1,0 +1,54 @@
+<html>
+    <head>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Usage per million'],
+            ['1880', 950],
+            ['1890', 1480],
+            ['1900', null],
+            ['1910', 2590],
+            ['1920', null],
+            ['1930', null],
+            ['1940', 2000],
+            ['1950', null],
+            ['1960', 2800],
+            ['1970', null],
+            ['1980', 2000],
+            ['1990', 3000],
+            ['2000', 2000]
+          ]);
+  
+          var options = {
+            title: 'Usage of the name Maria',
+            legend: { position: 'bottom' },
+            hAxis: {
+              title: 'Year',
+              format: '####'
+            },
+            vAxis: {
+              title: 'Usage per million',
+              minValue: 0
+            },
+            interpolateNulls: true,
+            pointSize: 5,
+            pointShape: 'circle',
+            series: {
+              0: { pointShape: 'circle', pointSize: 5, lineWidth: 2 }
+            }
+          };
+  
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  
+          chart.draw(data, options);
+        }
+      </script>
+    </head>
+    <body>
+      <div id="curve_chart" style="width: 900px; height: 500px"></div>
+    </body>
+  </html>   
